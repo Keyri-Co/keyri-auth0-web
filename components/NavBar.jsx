@@ -61,7 +61,7 @@ const NavBar = () => {
                     className="btn btn-primary btn-margin"
                     tabIndex={0}
                     testId="navbar-login-desktop">
-                    Log in
+                    Conventional Auth
                   </AnchorLink>
                 </NavItem>
               )}
