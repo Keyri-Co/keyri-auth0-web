@@ -9,6 +9,7 @@ import Highlight from '../components/Highlight';
 function Profile() {
   const { user, isLoading } = useUser();
 
+  console.log(user);
   return (
     <>
       {isLoading && <Loading />}
