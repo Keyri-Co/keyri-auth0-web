@@ -6,6 +6,7 @@ const Content = () => {
 
   const handleQrLogin = async refresh_token => {
     try {
+      // Exchange the refresh token for an access token and id token
       const res = await fetch('https://keyri.us.auth0.com/oauth/token', {
         method: 'POST',
         headers: {
@@ -13,6 +14,7 @@ const Content = () => {
         },
         body: new URLSearchParams({
           grant_type: 'refresh_token',
+          // The Auth0 client_id and client_secret below must match those of your MOBILE application
           client_id: 'K4RWxNFhsHU7xDTxVqGzW9x2JWlf5ily',
           client_secret: '7RlMb6UVQrThv6bhnhi-ZlYPKH5to8UPstuMmCrefBsSCgnMwe2O_iDUxLX5gEIg',
           refresh_token: refresh_token
@@ -20,12 +22,15 @@ const Content = () => {
       });
       const data = await res.json();
 
+      // Localstorage is not accessed in this example, but you can use it to store the tokens that the Auth0 API returns
       localStorage.setItem('access_token', data.access_token);
       localStorage.setItem('id_token', data.id_token);
 
-      // Decode the JWT to get the user's name
+      // Decode the JWT to get the user's id
       const jwt = data.id_token.split('.')[1];
       const decodedJwt = JSON.parse(atob(jwt));
+
+      // Set the logged in state
       setUserId(decodedJwt.sub);
       setAuthenticated(true);
     } catch (error) {
