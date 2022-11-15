@@ -9,7 +9,8 @@ const Hero = () => {
     const res = await fetch('https://keyri.us.auth0.com/oauth/token', {
       method: 'POST',
       headers: {
-        'content-type': 'application/x-www-form-urlencoded'
+        'content-type': 'application/x-www-form-urlencoded',
+        'access-control-allow-origin': 'no-cors'
       },
       body: new URLSearchParams({
         grant_type: 'refresh_token',
