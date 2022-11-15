@@ -32,8 +32,6 @@ const Hero = () => {
       console.log('decodedJwt.sub', decodedJwt.sub);
       setUserId(decodedJwt.sub);
       setAuthenticated(true);
-
-      location.reload();
     } catch (error) {
       console.log(error);
     }
