@@ -38,7 +38,6 @@ const Content = () => {
       if (evt.data.keyri && evt.data.data && document.location.origin == evt.origin) {
         const { data } = evt;
         if (!data.error) {
-          console.log(data);
           let refresh_token = JSON.parse(data.data).refreshToken;
           await handleQrLogin(refresh_token);
         } else if (data.error) {
