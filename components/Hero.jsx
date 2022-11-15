@@ -21,11 +21,15 @@ const Hero = () => {
       const data = await res.json();
 
       localStorage.setItem('access_token', data.access_token);
+      console.log('access_token', data.access_token);
       localStorage.setItem('id_token', data.id_token);
+      console.log('id_token', data.id_token);
 
       // Decode the JWT to get the user's name
       const jwt = data.id_token.split('.')[1];
       const decodedJwt = JSON.parse(atob(jwt));
+      console.log('decodedJwt', decodedJwt);
+      console.log('decodedJwt.sub', decodedJwt.sub);
       setUserId(decodedJwt.sub);
       setAuthenticated(true);
 
