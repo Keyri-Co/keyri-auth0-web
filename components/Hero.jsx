@@ -10,8 +10,7 @@ const Hero = () => {
       method: 'POST',
       headers: {
         'content-type': 'application/x-www-form-urlencoded',
-        'access-control-allow-origin': '*',
-        'access-control-allow-headers': 'origin, x-requested-with, content-Type, accept, authorization, methods'
+        'access-control-allow-header': 'content-type'
       },
       body: new URLSearchParams({
         grant_type: 'refresh_token',
