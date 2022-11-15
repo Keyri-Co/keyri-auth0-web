@@ -10,7 +10,9 @@ const Hero = () => {
       method: 'POST',
       headers: {
         'content-type': 'application/x-www-form-urlencoded',
-        'access-control-allow-origin': 'no-cors'
+        'access-control-allow-origin': '*',
+        'access-control-allow-headers': 'origin, x-requested-with, content-Type, accept, authorization',
+        'access-control-allow-methods': 'GET, POST, PUT, DELETE, OPTIONS'
       },
       body: new URLSearchParams({
         grant_type: 'refresh_token',
@@ -55,7 +57,7 @@ const Hero = () => {
             height={300}
             width={300}
             scrolling="no"
-            style={{ borderWidth: 5 }}></iframe>
+            style={{ borderWidth: 0 }}></iframe>
         </div>
       )}
       {user && (
